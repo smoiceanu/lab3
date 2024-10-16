@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 4</title>
+
+        <script>
+            // javascript elements - adding new html elements
+            window.onload = function() {
+                // Create a new nav element
+                const navBar = document.createElement('nav');
+            
+                // Set the website name or title
+                navBar.textContent = 'My Website';
+            
+                // Style the nav bar
+                navBar.style.width = '100vw';
+                navBar.style.background = 'purple'; // To make sure it appears purple
+                navBar.style.height = '40px';
+                navBar.style.fontSize = '20px';
+                navBar.style.color = 'white';
+                navBar.style.display = 'flex';
+                navBar.style.alignItems = 'center';
+                navBar.style.justifyContent = 'left';
+            
+                // Append the nav bar to the body
+                document.body.prepend(navBar);
+                // Select the main tag
+                const mainTag = document.querySelector('main');
+    
+                // Apply 20px padding to the main tag
+                mainTag.style.padding = '20px';
+
+                // Select all labels that are within the specific form or section for the age radio buttons
+                const radioLabels = document.querySelectorAll('form[name="view-person"] label');
+
+                // Ensure there are enough labels and then modify the specific ones
+                if (radioLabels.length >= 3) {
+                    radioLabels[1].textContent = "18-60";       // Change the second option
+                    radioLabels[2].textContent = "more than 60"; // Change the third option
+                }
+
+                // Select the search bar by its ID
+                const searchBar = document.querySelector('#search');
+
+                // Apply the styles to the search bar
+                searchBar.style.width = '200px';
+                searchBar.style.height = '25px';
+                searchBar.style.borderRadius = '25px';
+                searchBar.style.padding = '10px';
+                searchBar.style.border = '0.5px solid lightgrey';
+
+                // Select the button by its ID
+                const viewButton = document.getElementById("view-visitor-submit-btn");
+
+                // Apply the styles
+                viewButton.style.backgroundColor = "#FDCE4B";
+                viewButton.style.color = "#61554B";
+                viewButton.style.fontWeight = "bold";
+                viewButton.style.border = "none";
+                viewButton.style.padding = "8px 10px";
+            }; 
+            </script>
+
+    </head>
+    <body>
+        <main>
+            <form name="search">
+                <label id="search-label" for="search">Search the site: </label>
+                <input type="text" name="search" id="search" />
+            </form>
+    
+            <hr>
+    
+            <form name="view-person">
+                View the visitors:
+                <table id="age-table">
+                    <tbody>
+                        <tr>
+                            <td>Age:</td>
+                            <td id="age-list">
+                                <input type="radio" name="age" id="young" value="young">
+                                <label for="young" class="age-label">less than 18</label>
+                            
+                                <input type="radio" name="age" id="mature" value="mature">
+                                <label for="mature" class="age-label">18-50</label>
+                            
+                                <input type="radio" name="age" id="senior" value="senior">
+                                <label for="senior" class="age-label">more than 50</label>
+                            </td>
+                        </tr>            
+                    </tbody>
+                </table>
+            
+                <input id="view-visitor-submit-btn" type="submit" value="View Visitors">
+            </form>
+        </main>
+    </body>
+</html>
